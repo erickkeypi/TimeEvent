@@ -14,3 +14,35 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 */
+
+#ifndef _TIME_EVENT_H
+#define _TIME_EVENT_H
+
+#include "Arduino.h"
+#define _TIME_EVENT_START 0
+#define _TIME_EVENT_STOP 1
+#define _TIME_EVENT_PAUSE 2
+
+
+class TimeEvent {
+private:
+  unsigned long tiempo, frecuencia, cuenta;
+  byte estado;
+  boolean repetir;
+
+
+public:
+  TimeEvent(unsigned long);
+  void setFrecuency(unsigned long);
+  boolean run();
+  void run(void(fc)(void));
+  unsigned long count();
+  void stop();
+  void start();
+  void pause();
+  void repeat();
+  void noRepeat();
+  byte state();
+};
+
+#endif

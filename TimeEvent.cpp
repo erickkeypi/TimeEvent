@@ -14,3 +14,69 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 */
+
+#include "TimeEvent.h"
+
+TimeEvent::TimeEvent(unsigned long _frecuencia){
+  frecuencia = _frecuencia;
+  estado = _TIME_EVENT_STOP;
+  repetir = false;
+  cuenta = 0;
+}
+
+void TimeEvent::setFrecuency(unsigned long _frecuencia){
+  frecuencia = _frecuencia;
+}
+
+boolean TimeEvent::run(){
+  if(estado == _TIME_EVENT_START){
+    cuenta = millis() - tiempo;
+    if((cuenta >= frecuencia)){
+      tiempo = millis();
+      if(!repetir){
+        estado = _TIME_EVENT_STOP;
+      }
+      return true;
+    }
+  }
+  return false;
+}
+
+void TimeEvent::run(void(fc)(void)){
+  if(run()){
+    fc();
+  }
+}
+
+unsigned long TimeEvent::count(){
+  return cuenta;
+}
+
+void TimeEvent::stop(){
+  estado = _TIME_EVENT_STOP;
+}
+
+void TimeEvent::start(){
+  if(estado == _TIME_EVENT_PAUSE){
+    tiempo = millis() - cuenta;
+  } else{
+    tiempo = millis();
+  }
+  estado = _TIME_EVENT_START;
+}
+
+void TimeEvent::pause(){
+  estado = _TIME_EVENT_PAUSE;
+}
+
+void TimeEvent::repeat(){
+  repetir = true;
+}
+
+void TimeEvent::noRepeat(){
+  repetir = false;
+}
+
+byte TimeEvent::state(){
+  return estado;
+}
