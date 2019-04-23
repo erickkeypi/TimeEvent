@@ -5,6 +5,10 @@ Libreria arduino para ejecutar eventos de tiempo
 Se crea una instancia para cada evento de tiempo que se desee pasando como argumento de la funcion el tiempo de frecuencia en milisegundos que tendrá el evento
 ```c++
 TimeEvent evento = TimeEvent(tiempo);
+TimeEvent evento2 = TimeEvent(tiempo2);
+TimeEvent evento3 = TimeEvent(tiempo3);
+...
+...
 ```
 Dentro de `loop` se debe ejecutar la funcion `run`. Esta función devuelve `true` cuando se cumple el tiempo de retraso.
 ```
