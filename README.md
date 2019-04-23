@@ -14,7 +14,7 @@ void loop() {
   }
 }
 ```
-O bien puede ponerse una función como argumento a ser llamada cuando se cumpla el tiempo de retraso. La funcióna llamar no puede recibir ni retornar ningun valor.
+O bien puede ponerse una función como argumento a ser llamada cuando se cumpla el tiempo de retraso. La función a llamar no puede recibir ni retornar ningun valor.
 ```
 void loop() {
   evento.run(funcionAllamar);
