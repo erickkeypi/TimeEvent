@@ -59,7 +59,7 @@ void TimeEvent::stop(){
 void TimeEvent::start(){
   if(estado == _TIME_EVENT_PAUSE){
     tiempo = millis() - cuenta;
-  } else{
+  } else if (estado != _TIME_EVENT_START){
     tiempo = millis();
   }
   estado = _TIME_EVENT_START;
