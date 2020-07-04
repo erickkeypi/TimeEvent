@@ -26,14 +26,14 @@ limitations under the License.
 
 class TimeEvent {
 private:
-  unsigned long tiempo, frecuencia, cuenta;
+  unsigned long tiempo, periodo, cuenta;
   byte estado;
   boolean repetir;
 
 
 public:
   TimeEvent(unsigned long);
-  void setFrequency(unsigned long);
+  void setPeriod(unsigned long);
   boolean run();
   void run(void(fc)(void));
   unsigned long count();
