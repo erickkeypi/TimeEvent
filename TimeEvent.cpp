@@ -24,7 +24,7 @@ TimeEvent::TimeEvent(unsigned long _frecuencia){
   cuenta = 0;
 }
 
-void TimeEvent::setFrecuency(unsigned long _frecuencia){
+void TimeEvent::setFrequency(unsigned long _frecuencia){
   frecuencia = _frecuencia;
 }
 
