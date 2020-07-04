@@ -38,8 +38,8 @@ Por defecto el evento solo ocurre una vez, pero este comportamiento puede cambia
 ```TimeEvent(unsigned long tiempo)```
 Constructor de la clase.
 
-```void setFrecuency(unsigned long frecuencia)```
-Cambia la frecuencia a la que se produce el evento.
+```void setPeriod(unsigned long periodo)```
+Cambia el periodo en el que se produce el evento en ms.
 
 ```boolean run()```
 Devuelve `true` cuando se cumple el tiempo de retraso.
