@@ -17,15 +17,15 @@ limitations under the License.
 
 #include "TimeEvent.h"
 
-TimeEvent::TimeEvent(unsigned long _frecuencia){
-  frecuencia = _frecuencia;
+TimeEvent::TimeEvent(unsigned long _periodo){
+  periodo = _periodo;
   estado = _TIME_EVENT_STOP;
   repetir = false;
   cuenta = 0;
 }
 
-void TimeEvent::setFrequency(unsigned long _frecuencia){
-  frecuencia = _frecuencia;
+void TimeEvent::setPeriod(unsigned long _periodo){
+  periodo = _periodo;
 }
 
 boolean TimeEvent::run(){
