@@ -33,7 +33,7 @@ private:
 
 public:
   TimeEvent(unsigned long);
-  void setFrecuency(unsigned long);
+  void setFrequency(unsigned long);
   boolean run();
   void run(void(fc)(void));
   unsigned long count();
