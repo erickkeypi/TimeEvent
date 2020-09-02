@@ -23,16 +23,21 @@ limitations under the License.
 #define _TIME_EVENT_STOP 1
 #define _TIME_EVENT_PAUSE 2
 
+#define _TIME_EVENT_SECONDS 1
+
 
 class TimeEvent {
 private:
   unsigned long tiempo, periodo, cuenta;
   byte estado;
-  boolean repetir;
+  boolean repetir,segAct;
+
 
 
 public:
+  TimeEvent();
   TimeEvent(unsigned long);
+  TimeEvent(unsigned long, int);
   void setPeriod(unsigned long);
   boolean run();
   void run(void(fc)(void));
