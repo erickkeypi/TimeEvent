@@ -17,11 +17,23 @@ limitations under the License.
 
 #include "TimeEvent.h"
 
-TimeEvent::TimeEvent(unsigned long _periodo){
-  periodo = _periodo;
+TimeEvent::TimeEvent(){
   estado = _TIME_EVENT_STOP;
   repetir = false;
   cuenta = 0;
+  segAct = false;
+}
+TimeEvent::TimeEvent(unsigned long _periodo){
+  TimeEvent();
+  periodo = _periodo;
+}
+
+TimeEvent::TimeEvent(unsigned long _periodo,int modo){
+  TimeEvent();
+  periodo = _periodo;
+  if(modo){
+    segAct = true;
+  }
 }
 
 void TimeEvent::setPeriod(unsigned long _periodo){
@@ -29,13 +41,20 @@ void TimeEvent::setPeriod(unsigned long _periodo){
 }
 
 boolean TimeEvent::run(){
+
   if(estado == _TIME_EVENT_START){
-    cuenta = millis() - tiempo;
-    if((cuenta >= frecuencia)){
+    if(segAct){
+      cuenta = (millis() - tiempo)/1000;
+    }else{
+      cuenta = millis() - tiempo;
+    }
+
+    if((cuenta >= periodo)){
       tiempo = millis();
       if(!repetir){
         estado = _TIME_EVENT_STOP;
       }
+
       return true;
     }
   }
